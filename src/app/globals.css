@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-primary: #a72c3e;
+  --color-primary-light: #f2d8db; /* very light/faded primary */
+  --color-yellow-light: #fff4c2;  /* light yellow */
+  --color-yellow: #ffe066;        /* slightly stronger yellow */
+  --color-green-light: #d4f5d4;   /* light green */
+
+
+
 }
 
 @theme inline {
@@ -16,7 +24,55 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
   }
+}
+
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px; /* slight rounding, not fully rounded */
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #8c2231; /* darker shade of primary */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.contact-bar {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 6px 16px;
+  font-size: 14px;
+}
+.contact-bar .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact-bar .left {
+  display: flex;
+  gap: 20px;
+}
+.contact-bar .item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.contact-bar .right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 body {
@@ -24,3 +80,58 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Inputs, textareas, selects */
+input,
+textarea,
+select {
+  color: #000000 !important;
+  caret-color: #000000 !important;
+}
+
+/* Placeholder text */
+::placeholder {
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Labels */
+label {
+  color: #000000 !important;
+  font-weight: 500;
+}
+
+/* react-select overrides */
+[class*="control"],
+[class*="singleValue"],
+[class*="multiValueLabel"],
+[class*="option"],
+[class*="placeholder"],
+[class*="input"] {
+  color: #000000 !important;
+}
+
+[class*="option"]:hover {
+  background-color: #f3f4f6 !important;
+  color: #000000 !important;
+}
+
+/* Arrow icon */
+[class*="indicator"] svg {
+  fill: #000000 !important;
+}
+/* Fix for html2canvas - force fallback sRGB color space */
+* {
+  color-scheme: light;
+}
+
+
+
+
